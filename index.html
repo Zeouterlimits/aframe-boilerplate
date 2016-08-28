@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello, World! • A-Frame</title>
-    <meta name="description" content="Hello, World! • A-Frame">
-    <script src="https://aframe.io/releases/latest/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cube position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#4CC3D9"></a-cube>
-      <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+    <head>
+        <meta charset="utf-8" />
+        <title>Ghost in the Shell UI</title>
+        
+        <script src="node_modules/aframe/dist/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene>
+            <a-assets>
+                <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
+            </a-assets>
 
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-  </body>
+             <a-entity position="1.75 0 1.2" rotation="0 28 0">
+                <a-camera near="0.1" user-height="0"></a-camera>
+            </a-entity>
+
+            <a-entity id="schematic-2" position="0 0 -6" scale="0.7 0.7 0.7">
+                <a-image mixin="image" scale="5 5 5" position="0 0 -2">
+                    <a-animation attribute="visible" from="false" to="true" delay="1500" dur="1" fill="both"></a-animation>
+                </a-image>
+            </a-entity>
+
+            <a-light type="point" color="#94c6ff" distance="15" position="0 0 -12">
+                <a-animation attribute="intensity" from="0" to="2" delay="750" dur="500" fill="both"></a-animation>
+            </a-light>
+        </a-scene>
+    </body>
 </html>
